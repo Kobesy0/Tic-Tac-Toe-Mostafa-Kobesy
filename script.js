@@ -1,20 +1,20 @@
 let scorePlayer1 = document.querySelector(".score-box .p-1")
 let scorePlayer2 = document.querySelector(".score-box .p-2")
 const board = document.querySelector(".board");
-let playerChoice, currentPlayer;
+let currentPlayer;
 document.querySelectorAll(".select-x, .select-o").forEach(button => {
     button.addEventListener("click", () => startGame(button.classList.contains("select-x") ? "X" : "O"));
 });
 
 function startGame(choice) {
-    playerChoice = currentPlayer = choice;
+    currentPlayer = choice;
     document.querySelector(".player-selection").style.display = "none";
     document.querySelector(".score-box").style.display = "inline-block"; 
     document.querySelector(".players-box p").style.display = "none"; 
     document.querySelector(".vs").style.display = "none"
     document.querySelector(".board-box").style.display = "block";
     document.querySelector(".turn").style.display = "block";
-    document.querySelector(".turn span").innerHTML = playerChoice
+    document.querySelector(".turn span").innerHTML = currentPlayer
     lockInput()
     initBoard();
 }
@@ -62,8 +62,8 @@ function updateCells(cellIndex) {
     const cell = board.querySelector(`[data-index="${cellIndex}"]`);
     cell.textContent = currentPlayer;
     cell.classList.add(currentPlayer === "X" ? "player-x" : "player-o");
-    currentPlayer = currentPlayer === playerChoice ? (playerChoice === "X" ? "O" : "X") : playerChoice;
-    document.querySelector(".turn span").innerHTML  = currentPlayer
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    document.querySelector(".turn span").innerHTML = currentPlayer;
 }
 
 function checkWinCondition() {
@@ -116,7 +116,7 @@ function draw(){
     setTimeout(() => {
         draw.remove();
         layover.remove();
-    }, 2000);
+    }, 1200);
 }
 
 
