@@ -156,7 +156,7 @@ input{
     width: 70px;
     background: #FFF;
     border-radius: 25px;
-    filter: drop-shadow(2px 6px 30px orange);
+    filter: drop-shadow(2px 6px 60px orange);
     user-select: none;
     font-size: 18px;
     display: none;
