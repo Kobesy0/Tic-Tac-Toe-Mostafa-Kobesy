@@ -26,6 +26,9 @@ function lockInput(){
             input.setAttribute("readonly", true);
         }
     })
+    document.querySelectorAll(".player-1, .player-2").forEach(input => {
+    input.setAttribute("readonly", true);
+})
 }
 
 
